@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">MYRA</string>
+    <string name="accessibility_service_description">MYRA Assistant Accessibility Service enables automated UI interactions, opening apps, typing, scrolling, and voice-controlled actions.</string>
+
+    <!-- Memory Categories -->
+    <string-array name="memory_categories">
+        <item>General</item>
+        <item>Social</item>
+        <item>Contact</item>
+        <item>Music</item>
+        <item>Personal</item>
+        <item>Secure Vault</item>
+    </string-array>
+</resources>

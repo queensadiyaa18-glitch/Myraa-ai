@@ -1,0 +1,482 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawerLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- MAIN ROOT SCREEN -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_gradient_mesh">
+
+        <!-- Ambient overlay -->
+        <View
+            android:id="@+id/redOverlay"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#FF1744"
+            android:alpha="0" />
+
+        <!-- Vertical Container -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingTop="36dp">
+
+            <!-- 1. TOP BAR with Drawer Hamburger Icon -->
+            <LinearLayout
+                android:id="@+id/topBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="16dp"
+                android:layout_marginBottom="8dp">
+
+                <!-- Drawer Hamburger Icon (Top-Left) -->
+                <ImageButton
+                    android:id="@+id/btnOpenDrawer"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:src="@drawable/ic_menu"
+                    android:tint="#FF1744"
+                    android:contentDescription="Open Navigation Drawer" />
+
+                <!-- Center Title & Subtitle -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center_horizontal">
+
+                    <TextView
+                        android:id="@+id/titleMyra"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="MYRA"
+                        android:textColor="#FF1744"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:letterSpacing="0.25"
+                        android:fontFamily="sans-serif-black" />
+
+                    <TextView
+                        android:id="@+id/subtitleMyra"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="AI ASSISTANT • REDEFINED"
+                        android:textColor="#888888"
+                        android:textSize="9sp"
+                        android:fontFamily="monospace"
+                        android:letterSpacing="0.12" />
+                </LinearLayout>
+
+                <!-- Right Action Buttons: Scanner & Settings -->
+                <ImageButton
+                    android:id="@+id/btnCameraVision"
+                    android:layout_width="38dp"
+                    android:layout_height="38dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:src="@drawable/ic_scan"
+                    android:tint="#D500F9"
+                    android:contentDescription="Camera Vision OCR"
+                    android:layout_marginEnd="4dp" />
+
+                <ImageButton
+                    android:id="@+id/settingsBtn"
+                    android:layout_width="38dp"
+                    android:layout_height="38dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:src="@drawable/ic_settings"
+                    android:tint="#EEEEEE"
+                    android:contentDescription="Open Settings" />
+            </LinearLayout>
+
+            <!-- 2. TOP QUICK-ACCESS BAR: [Music], [Study], [Journal] -->
+            <LinearLayout
+                android:id="@+id/quickAccessBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingHorizontal="16dp"
+                android:layout_marginBottom="10dp">
+
+                <TextView
+                    android:id="@+id/pillMusic"
+                    android:layout_width="0dp"
+                    android:layout_height="34dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_quick_pill"
+                    android:gravity="center"
+                    android:text="🎵 Music"
+                    android:textColor="#EEEEEE"
+                    android:textSize="12sp"
+                    android:fontFamily="sans-serif-medium"
+                    android:layout_marginEnd="8dp" />
+
+                <TextView
+                    android:id="@+id/pillStudy"
+                    android:layout_width="0dp"
+                    android:layout_height="34dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_quick_pill"
+                    android:gravity="center"
+                    android:text="📚 Study"
+                    android:textColor="#EEEEEE"
+                    android:textSize="12sp"
+                    android:fontFamily="sans-serif-medium"
+                    android:layout_marginEnd="8dp" />
+
+                <TextView
+                    android:id="@+id/pillJournal"
+                    android:layout_width="0dp"
+                    android:layout_height="34dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_quick_pill"
+                    android:gravity="center"
+                    android:text="✍️ Journal"
+                    android:textColor="#EEEEEE"
+                    android:textSize="12sp"
+                    android:fontFamily="sans-serif-medium" />
+            </LinearLayout>
+
+            <!-- 3. DASHBOARD STATUS WIDGETS: Weather, Today, Mood -->
+            <LinearLayout
+                android:id="@+id/dashboardWidgetsContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingHorizontal="16dp"
+                android:layout_marginBottom="8dp">
+
+                <!-- Weather Widget -->
+                <LinearLayout
+                    android:id="@+id/widgetWeather"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_widget_card"
+                    android:orientation="vertical"
+                    android:padding="8dp"
+                    android:layout_marginEnd="6dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="WEATHER"
+                        android:textColor="#888888"
+                        android:textSize="9sp"
+                        android:fontFamily="monospace" />
+
+                    <TextView
+                        android:id="@+id/widgetWeatherText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="28°C Clear ☀️"
+                        android:textColor="#40C4FF"
+                        android:textSize="11sp"
+                        android:textStyle="bold"
+                        android:fontFamily="sans-serif-medium" />
+                </LinearLayout>
+
+                <!-- Today Widget -->
+                <LinearLayout
+                    android:id="@+id/widgetToday"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_widget_card"
+                    android:orientation="vertical"
+                    android:padding="8dp"
+                    android:layout_marginEnd="6dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="TODAY"
+                        android:textColor="#888888"
+                        android:textSize="9sp"
+                        android:fontFamily="monospace" />
+
+                    <TextView
+                        android:id="@+id/widgetDateText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="5 Sat, Sep"
+                        android:textColor="#FF1744"
+                        android:textSize="11sp"
+                        android:textStyle="bold"
+                        android:fontFamily="sans-serif-medium" />
+                </LinearLayout>
+
+                <!-- Mood Widget -->
+                <LinearLayout
+                    android:id="@+id/widgetMood"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_widget_card"
+                    android:orientation="vertical"
+                    android:padding="8dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="MOOD"
+                        android:textColor="#888888"
+                        android:textSize="9sp"
+                        android:fontFamily="monospace" />
+
+                    <TextView
+                        android:id="@+id/widgetMoodText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Warm 💖"
+                        android:textColor="#D500F9"
+                        android:textSize="11sp"
+                        android:textStyle="bold"
+                        android:fontFamily="sans-serif-medium" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- 4. CENTER AREA: High-Impact Cyberpunk Orb + Waveform + Status Text -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:paddingHorizontal="16dp">
+
+                <!-- Orb Animation View -->
+                <com.myra.assistant.ui.main.OrbAnimationView
+                    android:id="@+id/orbView"
+                    android:layout_width="230dp"
+                    android:layout_height="230dp"
+                    android:layout_gravity="center" />
+
+                <!-- Waveform View -->
+                <com.myra.assistant.ui.main.WaveformView
+                    android:id="@+id/waveformView"
+                    android:layout_width="180dp"
+                    android:layout_height="28dp"
+                    android:layout_marginTop="6dp"
+                    android:layout_gravity="center" />
+
+                <!-- Status Hint -->
+                <TextView
+                    android:id="@+id/statusText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:text="Tap karke bolo 💬"
+                    android:textColor="#AAAAAA"
+                    android:textSize="12sp"
+                    android:fontFamily="sans-serif-medium" />
+
+                <!-- Chat Recycler (Scrollable Transcript) -->
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/chatRecycler"
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:layout_marginTop="4dp"
+                    android:clipToPadding="false"
+                    android:overScrollMode="never" />
+            </LinearLayout>
+
+            <!-- 5. CENTRAL TEXT & VOICE INPUT SECTION -->
+            <LinearLayout
+                android:id="@+id/textInputSection"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="4dp">
+
+                <!-- Floating Attachment Icon (📎) -->
+                <ImageButton
+                    android:id="@+id/btnAttach"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:src="@drawable/ic_attach"
+                    android:tint="#D500F9"
+                    android:contentDescription="Attach File or Image" />
+
+                <!-- Text input box: "Ask MYRA anything..." -->
+                <EditText
+                    android:id="@+id/editTextInput"
+                    android:layout_width="0dp"
+                    android:layout_height="42dp"
+                    android:layout_weight="1"
+                    android:layout_marginHorizontal="6dp"
+                    android:background="@drawable/bg_input_field"
+                    android:hint="Ask MYRA anything..."
+                    android:textColorHint="#666666"
+                    android:textColor="#FFFFFF"
+                    android:paddingHorizontal="14dp"
+                    android:textSize="13sp"
+                    android:inputType="textCapSentences"
+                    android:imeOptions="actionSend" />
+
+                <!-- Send Button (➤) -->
+                <ImageButton
+                    android:id="@+id/btnSendText"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/bg_save_button"
+                    android:src="@drawable/ic_send"
+                    android:tint="#FFFFFF"
+                    android:contentDescription="Send Message" />
+            </LinearLayout>
+
+            <!-- 6. BOTTOM NAVIGATION BAR with Prominent Center Floating Voice Orb -->
+            <FrameLayout
+                android:id="@+id/bottomNavContainer"
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:background="#0C0C12">
+
+                <!-- Nav Icons Row: [Home] | [Scan] | spacer | [Memories] | [Chat] -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <!-- Home -->
+                    <LinearLayout
+                        android:id="@+id/navHome"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/ic_home"
+                            android:tint="#FF1744" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Home"
+                            android:textColor="#FF1744"
+                            android:textSize="10sp"
+                            android:fontFamily="sans-serif-medium" />
+                    </LinearLayout>
+
+                    <!-- Scan -->
+                    <LinearLayout
+                        android:id="@+id/navScan"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/ic_scan"
+                            android:tint="#888888" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Scan"
+                            android:textColor="#888888"
+                            android:textSize="10sp"
+                            android:fontFamily="sans-serif-medium" />
+                    </LinearLayout>
+
+                    <!-- Center Spacer for Floating Orb -->
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1.2" />
+
+                    <!-- Memories -->
+                    <LinearLayout
+                        android:id="@+id/navMemories"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/ic_memory"
+                            android:tint="#888888" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Memories"
+                            android:textColor="#888888"
+                            android:textSize="10sp"
+                            android:fontFamily="sans-serif-medium" />
+                    </LinearLayout>
+
+                    <!-- Chat -->
+                    <LinearLayout
+                        android:id="@+id/navChat"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/ic_chat"
+                            android:tint="#888888" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Chat"
+                            android:textColor="#888888"
+                            android:textSize="10sp"
+                            android:fontFamily="sans-serif-medium" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Center Prominent Pulsing Microphone / Voice Orb Button -->
+                <ImageButton
+                    android:id="@+id/micButton"
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/bg_voice_orb_center"
+                    android:src="@drawable/ic_mic_off"
+                    android:tint="#FFFFFF"
+                    android:elevation="8dp"
+                    android:contentDescription="Voice Assistant Orb Button" />
+            </FrameLayout>
+        </LinearLayout>
+    </FrameLayout>
+
+    <!-- NAVIGATION DRAWER PANE -->
+    <FrameLayout
+        android:id="@+id/navigationDrawerView"
+        android:layout_width="300dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start">
+
+        <include layout="@layout/nav_drawer_content" />
+    </FrameLayout>
+
+</androidx.drawerlayout.widget.DrawerLayout>

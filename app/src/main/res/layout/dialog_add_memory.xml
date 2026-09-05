@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Memory Label (e.g., Mom's Phone, Instagram ID, Spotify Playlist)"
+        android:textColor="#888888"
+        android:textSize="12sp"
+        android:layout_marginBottom="4dp" />
+
+    <EditText
+        android:id="@+id/editMemoryKey"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@drawable/bg_input_field"
+        android:hint="e.g. Favorite Song, Telegram Channel"
+        android:textColorHint="#555555"
+        android:textColor="#FFFFFF"
+        android:paddingHorizontal="12dp"
+        android:textSize="14sp"
+        android:layout_marginBottom="12dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Content / Information to Remember"
+        android:textColor="#888888"
+        android:textSize="12sp"
+        android:layout_marginBottom="4dp" />
+
+    <EditText
+        android:id="@+id/editMemoryContent"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:background="@drawable/bg_input_field"
+        android:hint="Value or detail..."
+        android:textColorHint="#555555"
+        android:textColor="#FFFFFF"
+        android:paddingHorizontal="12dp"
+        android:gravity="top|start"
+        android:paddingTop="8dp"
+        android:textSize="14sp"
+        android:layout_marginBottom="12dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Category"
+        android:textColor="#888888"
+        android:textSize="12sp"
+        android:layout_marginBottom="4dp" />
+
+    <Spinner
+        android:id="@+id/spinnerCategory"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@drawable/bg_input_field"
+        android:entries="@array/memory_categories"
+        android:layout_marginBottom="12dp" />
+
+    <CheckBox
+        android:id="@+id/checkSecureVault"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Lock in Secure Vault (Requires PIN to view)"
+        android:textColor="#FF1744"
+        android:textSize="13sp" />
+</LinearLayout>

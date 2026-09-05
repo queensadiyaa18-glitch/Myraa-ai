@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/overlayRoot"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:clipChildren="false"
+    android:clipToPadding="false"
+    android:padding="8dp">
+
+    <!-- Glassmorphic Rotating Floating Orb -->
+    <com.myra.assistant.ui.overlay.GlassmorphicOrbView
+        android:id="@+id/overlayGlassOrbView"
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+        android:layout_gravity="center" />
+
+    <!-- Mini Return-to-App button -->
+    <ImageButton
+        android:id="@+id/overlayExpandBtn"
+        android:layout_width="26dp"
+        android:layout_height="26dp"
+        android:layout_gravity="top|end"
+        android:background="@drawable/bg_pill_status"
+        android:src="@drawable/ic_home"
+        android:padding="5dp"
+        android:tint="#00E5FF"
+        android:contentDescription="Open App" />
+
+    <!-- Close button (X) -->
+    <ImageButton
+        android:id="@+id/overlayCloseBtn"
+        android:layout_width="26dp"
+        android:layout_height="26dp"
+        android:layout_gravity="bottom|end"
+        android:background="@drawable/bg_pill_status"
+        android:src="@drawable/ic_close"
+        android:padding="5dp"
+        android:tint="#FF5252"
+        android:contentDescription="Close Overlay" />
+</FrameLayout>
